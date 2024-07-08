@@ -1,11 +1,11 @@
 [package]
 name = "otree"
 version = "0.3.1"
-edition = "2021"
-build = "build.rs"
-license = "MIT"
 authors = ["fioncat"]
+build = "build.rs"
 categories = ["command-line-utilities"]
+edition = "2021"
+license = "MIT"
 readme = "README.md"
 repository = "https://github.com/fioncat/otree"
 description = "A command line tool to view objects (json/yaml/toml) in TUI tree widget"
@@ -34,3 +34,9 @@ vergen = { version = "9.0", features = ["build", "rustc", "cargo", "si"] }
 lto = true
 strip = true
 incremental = false
+opt-level = 3
+codegen-units = 1
+
+[patch.crates-io]
+unicode-width = { git = "https://github.com/waltarix/unicode-width", tag = "v0.1.14-custom" }
+unicode-width2 = { package = "unicode-width", git = "https://github.com/waltarix/unicode-width", tag = "v0.2.0-custom-r1" }

@@ -192,7 +192,9 @@ impl<'a> TreeOverview<'a> {
             .unwrap()
             .experimental_scrollbar(Some(scrollbar))
             .highlight_style(self.cfg.colors.tree.selected.style)
-            .block(block);
+            .block(block)
+            .node_closed_symbol("\u{23f5} ")
+            .node_open_symbol("\u{23f7} ");
 
         frame.render_stateful_widget(widget, area, &mut state);
         self.state = Some(state);
