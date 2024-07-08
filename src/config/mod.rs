@@ -153,7 +153,7 @@ impl Config {
         }
         let home = home.unwrap();
 
-        let path = home.join(".config").join("otree.toml");
+        let path = home.join(".config").join("otree").join("config.toml");
         match fs::metadata(&path) {
             Ok(_) => Ok(Some(path)),
             Err(err) if err.kind() == io::ErrorKind::NotFound => Ok(None),
