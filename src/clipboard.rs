@@ -11,9 +11,7 @@ fn get_cmd() -> Result<Command> {
             if env::var("WAYLAND_DISPLAY").is_ok() {
                 Command::new("wl-copy")
             } else {
-                let mut cmd = Command::new("xclip");
-                cmd.args(["-selection", "clipboard"]);
-                cmd
+                Command::new("osc52-copy")
             }
         }
         "windows" => Command::new("clip"),
