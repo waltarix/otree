@@ -277,7 +277,9 @@ impl TreeOverview {
         let widget = TreeWidget::new(items)
             .unwrap()
             .experimental_scrollbar(Some(scrollbar))
-            .block(block);
+            .block(block)
+            .node_closed_symbol("\u{23f5} ")
+            .node_open_symbol("\u{23f7} ");
 
         let mut widget = if self.cfg.tree.disable_selected_highlight {
             widget.highlight_symbol(Self::DEFAULT_HIGHLIGHT_SYMBOL)
