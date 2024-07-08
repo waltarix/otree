@@ -39,9 +39,15 @@ vergen = { version = "^9", features = ["build", "rustc", "cargo", "si"] }
 lto = true
 strip = true
 incremental = false
+opt-level = 3
+codegen-units = 1
+panic = "abort"
 
 [lints.clippy]
 pedantic = { level = "warn", priority = -1 }
 single_match_else = "allow" # match-ing Options is visually cleaner
 inefficient_to_string = "allow" # makes type conversion less obvious for little benefit
 too_many_lines = "allow" # necessary evil for now
+[patch.crates-io]
+unicode-width = { git = "https://github.com/waltarix/unicode-width", tag = "v0.1.14-custom-r1" }
+unicode-width2 = { package = "unicode-width", git = "https://github.com/waltarix/unicode-width", tag = "v0.2.0-custom-r2" }

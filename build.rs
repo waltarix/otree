@@ -25,7 +25,6 @@ fn exec_git(args: &[&str]) -> Result<String, Box<dyn Error>> {
 fn fetch_git_info() -> Result<(), Box<dyn Error>> {
     let describe = exec_git(&["describe", "--tags"]).unwrap_or_default();
     let sha = exec_git(&["rev-parse", "HEAD"])?;
-    let short_sha = exec_git(&["rev-parse", "--short", "HEAD"])?;
 
     let cargo_version = env!("CARGO_PKG_VERSION");
     let stable_tag = format!("v{cargo_version}");
@@ -42,7 +41,7 @@ fn fetch_git_info() -> Result<(), Box<dyn Error>> {
     } else if describe.is_empty() {
         (cargo_version.to_string(), "stable")
     } else {
-        (format!("{cargo_version}-dev_{short_sha}"), "dev")
+        (format!("{cargo_version}-custom"), "stable")
     };
 
     let uncommitted_count = uncommitted_count()?;
