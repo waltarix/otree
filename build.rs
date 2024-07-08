@@ -42,7 +42,7 @@ fn fetch_git_info() -> Result<(), Box<dyn Error>> {
     } else if describe.is_empty() {
         (cargo_version.to_string(), "stable")
     } else {
-        (format!("{cargo_version}-dev_{short_sha}"), "dev")
+        (format!("{cargo_version}-custom"), "stable")
     };
 
     let uncommitted_count = uncommitted_count()?;
