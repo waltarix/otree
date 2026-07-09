@@ -14,7 +14,7 @@ pub struct CommandArgs {
     /// The file to read data. If this is empty, read from stdin.
     pub path: Option<String>,
 
-    /// The config file to use. Default will try to read `~/.config/otree.toml`.
+    /// The config file to use. Default will try to read `~/.config/otree/config.toml`.
     #[clap(long)]
     pub config: Option<String>,
 
